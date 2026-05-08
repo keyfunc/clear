@@ -1,40 +1,36 @@
 {
   "name": "create-clear",
-  "version": "0.0.16",
-  "description": "A CLI tool to quickly scaffold frontend projects with pre-configured templates",
+  "version": "1.0.0",
+  "description": "A CLI tool to quickly create project templates.",
   "type": "module",
   "author": "keyfunc",
   "license": "MIT",
   "keywords": [
     "cli",
-    "scaffold",
     "template",
     "frontend",
-    "react",
-    "taro",
-    "create-app",
-    "boilerplate"
+    "backend"
   ],
   "bin": {
     "create-clear": "index.js"
   },
   "scripts": {
-    "test": "node index.js",
+    "test": "unbuild && node index.js",
     "build": "unbuild"
   },
   "files": [
     "index.js",
-    "/template-next",
-    "/template-react",
     "/dist"
   ],
   "engines": {
-    "node": "^19.0.0 || ^20.0.0 || >=22.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
-    "tiged": "^2.12.7",
     "chalk": "^5.4.1",
     "prompts": "^2.4.2",
+    "tiged": "^2.12.7"
+  },
+  "devDependencies": {
     "unbuild": "^3.6.1"
   },
   "repository": {
@@ -45,9 +41,5 @@
   "bugs": {
     "url": "https://github.com/keyfunc/clear/issues"
   },
-  "homepage": "https://github.com/keyfunc/clear/tree/master/packages/create-clear#readme",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  }
+  "homepage": "https://github.com/keyfunc/clear/tree/master/packages/create-clear#readme"
 }

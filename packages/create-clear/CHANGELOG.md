@@ -1,25 +1,14 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-## [0.0.14] - 2025-11-27
-
-### Changed
-- 重构模板拉取机制，使用 `tiged` 从 GitHub 拉取模板
-- 更新模板源为 `keyfunc/program-template`
-- 优化命令行交互体验
+## [1.0.0]
 
 ### Added
-- 新增 `mobile-taro` 模板支持
-- 新增 `admin-react` 模板支持
-- 添加完整的 TypeScript 类型支持
-- 添加彩色日志输出
+- 发布 `create-clear` 第一个正式版本。
+- 支持从远程 `templates.json` 获取模板列表。
+- 支持交互式选择模板并使用 `tiged` 拉取项目模板。
+- 支持目标目录存在时二次确认覆盖。
+- 优化命令行展示，提供中文提示和创建完成后的下一步指引。
 
-### Removed
-- 移除本地模板文件，改为在线拉取
-
-## [0.0.12] - Previous
-
-### Features
-- 基础脚手架功能
-- 本地模板支持
+### Changed
+- 使用 `path.resolve` 生成目标目录路径。
+- 将 Node.js 支持范围统一为 `>=18.0.0`。
