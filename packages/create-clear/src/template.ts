@@ -2,86 +2,125 @@
  * @description 模版配置
  */
 
-import tiged from 'tiged';
-import chalk from 'chalk';
+import chalk from "chalk";
+import tiged from "tiged";
 
 // 仓库模版前缀
-const prefix = 'keyfunc/template';
+const prefix = "keyfunc/template";
+const templatesUrl = `https://raw.githubusercontent.com/${prefix}/master/templates.json`;
 
-// 模版列表
-const templateList = [
-    {
-        name: 'react',
-        description: 'A React template built with React 19.2, Orval, Tanstack Router, Tanstack Query, TailwindCSS v4, Axios, and Zustand.',
-        repoPath: `${prefix}/frontend/react`,
-    },
-    {
-        name: 'go-standard',
-        description: 'A api template built with Go standard library.',
-        repoPath: `${prefix}/backend/go-standard`,
-    },
-    {
-        name: 'mobile-taro',
-        description: 'A mobile app template built with Taro v4, TailwindCSS, Axios, and Zustand.',
-        repoPath: `${prefix}/frontend/mobile-taro`,
-    },
-    {
-        name: 'admin-react',
-        description: 'A modern admin dashboard template built with React 19.2, TanStack Router, TanStack Query, shadcn/ui, TailwindCSS, and Zustand.',
-        repoPath: `${prefix}/frontend/admin-react`,
-    },
-    {
-        name: 'admin-gin',
-        description: 'A production-ready admin backend template built with Go, Gin, GORM, PostgreSQL, Redis, and MongoDB.',
-        repoPath: `${prefix}/backend/admin-gin`,
-    }
-]
+export interface Template {
+    name: string;
+    description: string;
+    repoPath: string;
+}
 
-// 命令行选择列表
-export const choicesList = templateList.map(item => {
-    return {
-        title: item.name,
-        description: item.description,
-        value: item.name
+interface PullTemplateOptions {
+    force?: boolean;
+    templates: Template[];
+}
+
+export const getTemplates = async (): Promise<Template[]> => {
+    let response: Response;
+
+    try {
+        response = await fetch(templatesUrl);
+    } catch (error) {
+        throw new Error(`无法获取远程模版配置: ${getErrorMessage(error)}`);
     }
-})
+
+    if (!response.ok) {
+        throw new Error(`无法获取远程模版配置: ${response.status} ${response.statusText}`);
+    }
+
+    const data: unknown = await response.json();
+    return validateTemplates(data).map((template) => {
+        return {
+            ...template,
+            repoPath: normalizeRepoPath(template.repoPath),
+        };
+    });
+};
+
+export const getChoicesList = (templates: Template[]) => {
+    return templates.map((item) => {
+        return {
+            title: chalk.cyan(item.name),
+            description: chalk.dim(item.description),
+            value: item.name,
+        };
+    });
+};
+
+const validateTemplates = (data: unknown): Template[] => {
+    if (!Array.isArray(data)) {
+        throw new Error("远程模版配置格式错误: templates.json 必须是数组");
+    }
+
+    return data.map((item, index) => {
+        if (!isTemplate(item)) {
+            throw new Error(`远程模版配置格式错误: 第 ${index + 1} 项不合法`);
+        }
+
+        return item;
+    });
+};
+
+const isTemplate = (item: unknown): item is Template => {
+    if (!item || typeof item !== "object") {
+        return false;
+    }
+
+    const template = item as Record<string, unknown>;
+    return (
+        typeof template.name === "string" &&
+        typeof template.description === "string" &&
+        typeof template.repoPath === "string"
+    );
+};
+
+const normalizeRepoPath = (repoPath: string): string => {
+    if (repoPath.startsWith(`${prefix}/`)) {
+        return repoPath;
+    }
+
+    return `${prefix}/${repoPath.replace(/^\/+/, "")}`;
+};
 
 /**
  * @description 从github拉取模板
  * @param templateName 模版名称
  * @param targetDir 目标路径
- * @example
- * // 拉取整个仓库
- * await pullTemplate('mobile-taro', './my-project')
- * 
- * // 拉取指定分支
- * await pullTemplate('mobile-taro#dev', './my-project')
- * 
- * // 拉取指定子目录
- * await pullTemplate('mobile-taro#master/packages/create-clear', './my-project')
- * 
- * // 拉取指定分支的子目录
- * await pullTemplate('mobile-taro#dev/packages/create-clear', './my-project')
+ * @param options 拉取配置
  */
-export const pullTemplate = async (templateName: string, targetDir: string): Promise<void> => {
-
-    const repoPath = templateList.find(item => item.name === templateName)?.repoPath;
+export const pullTemplate = async (
+    templateName: string,
+    targetDir: string,
+    options: PullTemplateOptions,
+): Promise<void> => {
+    const repoPath = options.templates.find((item) => item.name === templateName)?.repoPath;
     if (!repoPath) {
-        throw new Error(`模版 ${templateName} 不存在`);
+        throw new Error(`模板 ${templateName} 不存在`);
     }
-  console.log(chalk.blue("拉取模版中..."));
 
-  const emitter = tiged(repoPath, {
-    disableCache: true,
-    force: true,
-    verbose: false,
-  });
+    console.log(`${chalk.dim("模板来源")} ${chalk.cyan(repoPath)}`);
+    console.log(chalk.dim("正在下载模板文件..."));
 
-  try {
-    await emitter.clone(targetDir);
-    console.log(chalk.green("✔ 拉取成功"));
-  } catch (error: any) {
-    console.error(chalk.red(`✖ 拉取失败: ${error.message}`));
-    throw error;
-  }
+    const emitter = tiged(repoPath, {
+        disableCache: true,
+        force: options.force ?? false,
+        verbose: false,
+    });
+
+    try {
+        await emitter.clone(targetDir);
+        console.log(chalk.green("模板下载完成"));
+    } catch (error: unknown) {
+        console.error(chalk.red(`模板下载失败: ${getErrorMessage(error)}`));
+        throw error;
+    }
 };
+
+function getErrorMessage(error: unknown): string {
+    return error instanceof Error ? error.message : String(error);
+}
