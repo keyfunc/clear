@@ -1,23 +1,23 @@
-name: clear-fetch pkg publish
+name: clear pkg publish
 
 on:
-  pull_request:
-    branches:
-      - master
-    paths:
-      - 'packages/clear-fetch/**'
+  workflow_dispatch:
+  paths:
+      - 'packages/clear/**'
+
 jobs:
-  publish:
+  publish-npm:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./packages/clear-fetch
+        working-directory: ./packages/clear
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
+      - run: npm install
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
