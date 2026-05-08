@@ -7,7 +7,7 @@
   "type": "module",
   "types": "typings.d.ts",
   "keywords": ["clear","fetch", "clear-fetch", "request","http"],
-  "author": "promonkeyli",
+  "author": "keyfunc",
   "license": "MIT",
   "scripts": {
     "build": "unbuild"
@@ -20,12 +20,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/promonkeyli/clear.git"
+    "url": "git+https://github.com/keyfunc/clear.git"
   },
   "bugs": {
-    "url": "https://github.com/promonkeyli/clear/issues"
+    "url": "https://github.com/keyfunc/clear/issues"
   },
-  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/clear-fetch#readme",
+  "homepage": "https://github.com/keyfunc/clear/tree/master/packages/clear-fetch#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

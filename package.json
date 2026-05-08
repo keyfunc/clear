@@ -7,7 +7,7 @@
     "cli",
     "front-end"
   ],
-  "author": "promonkeyli",
+  "author": "keyfunc",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/figlet": "^1.7.0",

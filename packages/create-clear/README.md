@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/create-clear.svg)](https://www.npmjs.com/package/create-clear)
 [![node version](https://img.shields.io/node/v/create-clear.svg)](https://nodejs.org)
-[![license](https://img.shields.io/npm/l/create-clear.svg)](https://github.com/promonkeyli/clear/blob/master/LICENSE)
+[![license](https://img.shields.io/npm/l/create-clear.svg)](https://github.com/keyfunc/clear/blob/master/LICENSE)
 
 ## 简介
 
@@ -70,7 +70,7 @@ $ pnpm create clear
 
 ✔ What is the name of project? … my-awesome-project
 ✔ Pick a project template › mobile-taro
-正在拉取模版: promonkeyli/program-template/frontend/mobile-taro...
+正在拉取模版: keyfunc/program-template/frontend/mobile-taro...
 ✔ 模版拉取成功
 ```
 
@@ -94,7 +94,7 @@ pnpm dev
 
 ```bash
 # 克隆仓库
-git clone https://github.com/promonkeyli/clear.git
+git clone https://github.com/keyfunc/clear.git
 
 # 进入项目目录
 cd clear/packages/create-clear
@@ -115,14 +115,14 @@ pnpm test
 
 ## 许可证
 
-[MIT](https://github.com/promonkeyli/clear/blob/master/LICENSE)
+[MIT](https://github.com/keyfunc/clear/blob/master/LICENSE)
 
 ## 相关链接
 
-- [GitHub 仓库](https://github.com/promonkeyli/clear)
-- [问题反馈](https://github.com/promonkeyli/clear/issues)
-- [模板仓库](https://github.com/promonkeyli/program-template)
+- [GitHub 仓库](https://github.com/keyfunc/clear)
+- [问题反馈](https://github.com/keyfunc/clear/issues)
+- [模板仓库](https://github.com/keyfunc/program-template)
 
 ---
 
-Made with ❤️ by [promonkeyli](https://github.com/promonkeyli)
+Made with ❤️ by [keyfunc](https://github.com/keyfunc)

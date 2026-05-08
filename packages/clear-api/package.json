@@ -9,14 +9,14 @@
 		"test": "tsc && node index.test.js"
 	},
 	"keywords": ["clear", "api", "clear-api", "openapi", "swagger"],
-	"author": "promonkeyli",
+	"author": "keyfunc",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/promonkeyli/clear-api.git"
+		"url": "git+https://github.com/keyfunc/clear-api.git"
 	},
 	"bugs": {
-		"url": "https://github.com/promonkeyli/clear-api/issues"
+		"url": "https://github.com/keyfunc/clear-api/issues"
 	},
-	"homepage": "https://github.com/promonkeyli/clear-api#readme"
+	"homepage": "https://github.com/keyfunc/clear-api#readme"
 }
