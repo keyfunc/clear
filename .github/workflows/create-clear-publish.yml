@@ -1,0 +1,44 @@
+# 工作流: 先 npm install => npm build => npm login => npm publish
+# 触发方式: 在 GitHub Actions 页面手动触发
+name: create-clear npm pkg publish
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: create-clear-npm-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish-npm:
+    name: Verify and publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ./packages/create-clear # 工作目录
+    steps:
+      - uses: actions/checkout@v4 # 拉仓库代码
+
+      - uses: actions/setup-node@v4 # 安装 Node20，并指定官方源
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build package
+        run: npm run build
+
+      - name: Check package contents # 模拟打包，输出哪些文件会推送至 npm
+        run: npm pack --dry-run
+
+      - name: Publish to npm
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
