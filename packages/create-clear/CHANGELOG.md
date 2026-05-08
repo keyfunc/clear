@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - 重构模板拉取机制，使用 `tiged` 从 GitHub 拉取模板
-- 更新模板源为 `promonkeyli/program-template`
+- 更新模板源为 `keyfunc/program-template`
 - 优化命令行交互体验
 
 ### Added

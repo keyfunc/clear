@@ -6,10 +6,20 @@ import tiged from 'tiged';
 import chalk from 'chalk';
 
 // 仓库模版前缀
-const prefix = 'promonkeyli/program-template';
+const prefix = 'keyfunc/template';
 
 // 模版列表
 const templateList = [
+    {
+        name: 'react',
+        description: 'A React template built with React 19.2, Orval, Tanstack Router, Tanstack Query, TailwindCSS v4, Axios, and Zustand.',
+        repoPath: `${prefix}/frontend/react`,
+    },
+    {
+        name: 'go-standard',
+        description: 'A api template built with Go standard library.',
+        repoPath: `${prefix}/backend/go-standard`,
+    },
     {
         name: 'mobile-taro',
         description: 'A mobile app template built with Taro v4, TailwindCSS, Axios, and Zustand.',

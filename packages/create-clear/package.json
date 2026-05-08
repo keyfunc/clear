@@ -3,7 +3,7 @@
   "version": "0.0.16",
   "description": "A CLI tool to quickly scaffold frontend projects with pre-configured templates",
   "type": "module",
-  "author": "promonkeyli",
+  "author": "keyfunc",
   "license": "MIT",
   "keywords": [
     "cli",
@@ -39,13 +39,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/promonkeyli/clear.git",
+    "url": "git+https://github.com/keyfunc/clear.git",
     "directory": "packages/create-clear"
   },
   "bugs": {
-    "url": "https://github.com/promonkeyli/clear/issues"
+    "url": "https://github.com/keyfunc/clear/issues"
   },
-  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/create-clear#readme",
+  "homepage": "https://github.com/keyfunc/clear/tree/master/packages/create-clear#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
