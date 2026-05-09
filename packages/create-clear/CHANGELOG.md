@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3]
+
+### Changed
+- Update the npm publish workflow for Trusted Publishing with OIDC.
+- Remove npm token usage from the `create-clear` publish workflow.
+- Use Node.js 24 in the publish workflow.
+
 ## [1.0.2]
 
 ### Changed
