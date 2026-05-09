@@ -9,9 +9,13 @@ import { getChoicesList, getTemplates, pullTemplate } from "./template";
 async function init() {
     try {
         printIntro();
-        console.log(chalk.dim("正在读取远程模板配置..."));
+        console.log(chalk.dim("Loading templates..."));
         const templates = await getTemplates();
-        console.log(chalk.green(`已加载 ${templates.length} 个模板`));
+        console.log(
+            chalk.green(
+                `Loaded ${templates.length} template${templates.length === 1 ? "" : "s"}`,
+            ),
+        );
         console.log();
 
         const response = await prompts(
@@ -19,13 +23,13 @@ async function init() {
                 {
                     type: "text",
                     name: "projectName",
-                    message: "项目名称",
+                    message: "Name",
                     validate: validateProjectName,
                 },
                 {
                     type: "select",
                     name: "template",
-                    message: "选择项目模板",
+                    message: "Template",
                     choices: getChoicesList(templates),
                     initial: 0,
                 },
@@ -48,14 +52,14 @@ async function init() {
                 {
                     type: "confirm",
                     name: "overwrite",
-                    message: `目录 "${projectName}" 已存在，是否覆盖？`,
+                    message: `Directory "${projectName}" exists. Overwrite?`,
                     initial: false,
                 },
                 { onCancel },
             );
 
             if (!overwrite) {
-                console.log(chalk.yellow("已取消创建。"));
+                console.log(chalk.yellow("Cancelled."));
                 return;
             }
 
@@ -63,7 +67,7 @@ async function init() {
         }
 
         console.log();
-        console.log(`${chalk.dim("目标目录")} ${chalk.cyan(targetDir)}`);
+        console.log(`${chalk.dim("Target")} ${chalk.cyan(targetDir)}`);
         await pullTemplate(template, targetDir, { force, templates });
         printNextSteps(projectName);
     } catch (error) {
@@ -75,7 +79,7 @@ async function init() {
 function printIntro() {
     console.log();
     console.log(chalk.bold.cyan("create-clear"));
-    console.log(chalk.dim("快速创建前端/后端项目模板"));
+    console.log(chalk.dim("Frontend, backend, and DevOps templates"));
     console.log();
 }
 
@@ -89,26 +93,24 @@ function validateProjectName(input: string): true | string {
     const projectName = String(input).trim();
 
     if (!projectName) {
-        return "请输入项目名称";
+        return "Enter a name";
     }
 
-    return validPackageName(projectName) || "项目名称格式不合法";
+    return validPackageName(projectName) || "Invalid name";
 }
 
 function onCancel() {
     console.log();
-    console.log(chalk.yellow("已取消创建。"));
+    console.log(chalk.yellow("Cancelled."));
     process.exit(0);
 }
 
 function printNextSteps(projectName: string) {
     console.log();
-    console.log(chalk.green("创建完成"));
-    console.log(chalk.dim("接下来可以执行："));
+    console.log(chalk.green("Done"));
+    console.log(chalk.dim("Next steps:"));
     console.log();
     console.log(`  ${chalk.cyan(`cd ${projectName}`)}`);
-    console.log(`  ${chalk.cyan("pnpm install")}`);
-    console.log(`  ${chalk.cyan("pnpm dev")}`);
     console.log();
 }
 

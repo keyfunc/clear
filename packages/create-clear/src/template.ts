@@ -1,11 +1,11 @@
 /**
- * @description 模版配置
+ * @description Template configuration
  */
 
 import chalk from "chalk";
 import tiged from "tiged";
 
-// 仓库模版前缀
+// Template repository prefix.
 const prefix = "keyfunc/template";
 const templatesUrl = `https://raw.githubusercontent.com/${prefix}/master/templates.json`;
 
@@ -26,11 +26,11 @@ export const getTemplates = async (): Promise<Template[]> => {
     try {
         response = await fetch(templatesUrl);
     } catch (error) {
-        throw new Error(`无法获取远程模版配置: ${getErrorMessage(error)}`);
+        throw new Error(`Failed to load templates: ${getErrorMessage(error)}`);
     }
 
     if (!response.ok) {
-        throw new Error(`无法获取远程模版配置: ${response.status} ${response.statusText}`);
+        throw new Error(`Failed to load templates: ${response.status} ${response.statusText}`);
     }
 
     const data: unknown = await response.json();
@@ -54,12 +54,12 @@ export const getChoicesList = (templates: Template[]) => {
 
 const validateTemplates = (data: unknown): Template[] => {
     if (!Array.isArray(data)) {
-        throw new Error("远程模版配置格式错误: templates.json 必须是数组");
+        throw new Error("Invalid templates.json: expected an array");
     }
 
     return data.map((item, index) => {
         if (!isTemplate(item)) {
-            throw new Error(`远程模版配置格式错误: 第 ${index + 1} 项不合法`);
+            throw new Error(`Invalid templates.json: item ${index + 1} is invalid`);
         }
 
         return item;
@@ -88,10 +88,10 @@ const normalizeRepoPath = (repoPath: string): string => {
 };
 
 /**
- * @description 从github拉取模板
- * @param templateName 模版名称
- * @param targetDir 目标路径
- * @param options 拉取配置
+ * @description Pull a template from GitHub
+ * @param templateName Template name
+ * @param targetDir Target path
+ * @param options Pull options
  */
 export const pullTemplate = async (
     templateName: string,
@@ -100,11 +100,11 @@ export const pullTemplate = async (
 ): Promise<void> => {
     const repoPath = options.templates.find((item) => item.name === templateName)?.repoPath;
     if (!repoPath) {
-        throw new Error(`模板 ${templateName} 不存在`);
+        throw new Error(`Unknown template: ${templateName}`);
     }
 
-    console.log(`${chalk.dim("模板来源")} ${chalk.cyan(repoPath)}`);
-    console.log(chalk.dim("正在下载模板文件..."));
+    console.log(`${chalk.dim("Source")} ${chalk.cyan(repoPath)}`);
+    console.log(chalk.dim("Downloading..."));
 
     const emitter = tiged(repoPath, {
         disableCache: true,
@@ -114,9 +114,9 @@ export const pullTemplate = async (
 
     try {
         await emitter.clone(targetDir);
-        console.log(chalk.green("模板下载完成"));
+        console.log(chalk.green("Downloaded"));
     } catch (error: unknown) {
-        console.error(chalk.red(`模板下载失败: ${getErrorMessage(error)}`));
+        console.error(chalk.red(`Download failed: ${getErrorMessage(error)}`));
         throw error;
     }
 };

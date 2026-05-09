@@ -1,4 +1,5 @@
-# 工作流: 先 npm install => npm build => npm login => npm publish
+# 工作流: 先 npm install => npm build => npm pack dry-run => npm publish
+# 发布方式: npm Trusted Publishing / OIDC，无需配置 npm token
 # 触发方式: 在 GitHub Actions 页面手动触发
 name: create-clear npm pkg publish
 
@@ -40,5 +41,3 @@ jobs:
 
       - name: Publish to npm
         run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}

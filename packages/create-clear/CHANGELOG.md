@@ -1,14 +1,22 @@
 # Changelog
 
+## [1.0.2]
+
+### Changed
+- Use concise English copy in the README and CLI prompts.
+- Describe the package as a frontend, backend, and DevOps template generator.
+- Remove template-specific install and start commands from the README and CLI output.
+- Update package metadata and keywords.
+
 ## [1.0.0]
 
 ### Added
-- 发布 `create-clear` 第一个正式版本。
-- 支持从远程 `templates.json` 获取模板列表。
-- 支持交互式选择模板并使用 `tiged` 拉取项目模板。
-- 支持目标目录存在时二次确认覆盖。
-- 优化命令行展示，提供中文提示和创建完成后的下一步指引。
+- First stable release.
+- Load templates from remote `templates.json`.
+- Select and download templates with `tiged`.
+- Confirm before overwriting an existing target directory.
+- Add clear CLI prompts and next steps.
 
 ### Changed
-- 使用 `path.resolve` 生成目标目录路径。
-- 将 Node.js 支持范围统一为 `>=18.0.0`。
+- Resolve target paths with `path.resolve`.
+- Set Node.js support to `>=18.0.0`.
