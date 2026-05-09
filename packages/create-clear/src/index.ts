@@ -23,7 +23,7 @@ async function init() {
                 {
                     type: "text",
                     name: "projectName",
-                    message: "Name",
+                    message: "Project name",
                     validate: validateProjectName,
                 },
                 {
@@ -93,10 +93,10 @@ function validateProjectName(input: string): true | string {
     const projectName = String(input).trim();
 
     if (!projectName) {
-        return "Enter a name";
+        return "Enter a project name";
     }
 
-    return validPackageName(projectName) || "Invalid name";
+    return validPackageName(projectName) || "Invalid project name";
 }
 
 function onCancel() {

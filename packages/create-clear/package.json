@@ -1,6 +1,6 @@
 {
   "name": "create-clear",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A lightweight generator for frontend, backend, and DevOps templates.",
   "type": "module",
   "author": "keyfunc",

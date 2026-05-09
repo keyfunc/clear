@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.4]
+
+### Changed
+- Use clearer project name copy in the CLI prompt and validation messages.
+
 ## [1.0.3]
 
 ### Changed
