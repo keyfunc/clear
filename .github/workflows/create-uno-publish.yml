@@ -23,9 +23,9 @@ jobs:
       run:
         working-directory: ./packages/create-uno # 工作目录
     steps:
-      - uses: actions/checkout@v4 # 拉仓库代码
+      - uses: actions/checkout@v5 # 拉仓库代码
 
-      - uses: actions/setup-node@v4 # 安装 Node20，并指定官方源
+      - uses: actions/setup-node@v5 # 安装 Node20，并指定官方源
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
