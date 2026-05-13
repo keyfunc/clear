@@ -1,12 +1,12 @@
 {
-  "name": "@keyfunc/clear",
+  "name": "@keyfunc/uno",
   "version": "0.0.3",
   "private": false,
-  "description": "A clear front-end cli.",
+  "description": "An uno front-end cli.",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "cr": "index.js"
+    "uno": "index.js"
   },
   "scripts": {
     "build": "unbuild",
@@ -18,7 +18,7 @@
     "dist"
   ],
   "keywords": [
-    "clear",
+    "uno",
     "front-end",
     "cli"
   ],

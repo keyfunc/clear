@@ -1,4 +1,4 @@
-name: clear pkg publish
+name: uno pkg publish
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./packages/clear
+        working-directory: ./packages/uno
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3

@@ -1,7 +1,7 @@
 # 工作流: 先 npm install => npm build => npm pack dry-run => npm publish
 # 发布方式: npm Trusted Publishing / OIDC，无需配置 npm token
 # 触发方式: 在 GitHub Actions 页面手动触发
-name: create-clear pkg publish
+name: create-uno publish
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: create-clear-npm-${{ github.ref }}
+  group: create-uno-npm-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 10
     defaults:
       run:
-        working-directory: ./packages/create-clear # 工作目录
+        working-directory: ./packages/create-uno # 工作目录
     steps:
       - uses: actions/checkout@v4 # 拉仓库代码
 

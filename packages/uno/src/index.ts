@@ -9,17 +9,17 @@ const program = new Command();
 const version = getPackageVersion();
 
 const log = `
-================= Welcome to clear cli Power By Young @2025 ! =================
+================= Welcome to uno cli Power By Young @2025 ! =================
 
 This is a front-end scaffolding tool, used to generate project development templates.
 `
 // 主命令
 program
-    .name('cr')
-    .description(`A clear front-end cli(${version})`)
+    .name('uno')
+    .description(`An uno front-end cli(${version})`)
     .version(version);
 
-// cr 无参时，帮助信息显示
+// uno 无参时，帮助信息显示
 program
     .action(() => {
         console.log(`\x1b[32m${log}\x1b[0m`)

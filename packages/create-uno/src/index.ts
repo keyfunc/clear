@@ -78,7 +78,7 @@ async function init() {
 
 function printIntro() {
     console.log();
-    console.log(chalk.bold.cyan("create-clear"));
+    console.log(chalk.bold.cyan("create-uno"));
     console.log(chalk.dim("Frontend, backend, and DevOps templates"));
     console.log();
 }

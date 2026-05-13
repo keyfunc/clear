@@ -5,7 +5,7 @@ export default function setGenerateProgram(program: Command){
     const generateProgram = program
         .command('generate')
         .alias("g")
-        .description('generate usage: cr g [component, store, service] name');
+        .description('generate usage: uno g [component, store, service] name');
     // 01: React 组件/页面生成
     generateProgram
         .command('component <name>')

@@ -1,6 +1,6 @@
 {
-  "name": "create-clear",
-  "version": "1.0.4",
+  "name": "create-uno",
+  "version": "1.0.0",
   "description": "A lightweight generator for frontend, backend, and DevOps templates.",
   "type": "module",
   "author": "keyfunc",
@@ -13,7 +13,7 @@
     "devops"
   ],
   "bin": {
-    "create-clear": "index.js"
+    "create-uno": "index.js"
   },
   "scripts": {
     "test": "unbuild && node index.js",
@@ -36,11 +36,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/keyfunc/clear.git",
-    "directory": "packages/create-clear"
+    "url": "git+https://github.com/keyfunc/uno.git",
+    "directory": "packages/create-uno"
   },
   "bugs": {
-    "url": "https://github.com/keyfunc/clear/issues"
+    "url": "https://github.com/keyfunc/uno/issues"
   },
-  "homepage": "https://github.com/keyfunc/clear/tree/master/packages/create-clear#readme"
+  "homepage": "https://github.com/keyfunc/uno/tree/master/packages/create-uno#readme"
 }
