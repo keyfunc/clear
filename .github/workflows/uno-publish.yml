@@ -1,4 +1,4 @@
-name: uno pkg publish
+name: uno publish
 
 on:
   workflow_dispatch:
