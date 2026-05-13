@@ -1,7 +1,6 @@
 {
-  "name": "@keyfunc/uno",
-  "version": "0.0.3",
-  "private": false,
+  "name": "@keyfun/uno",
+  "version": "1.0.0",
   "description": "An uno front-end cli.",
   "type": "module",
   "main": "index.js",
@@ -11,6 +10,16 @@
   "scripts": {
     "build": "unbuild",
     "test": "node index.js"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "fs-extra": "^11.2.0",
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.5",
+    "unbuild": "^3.6.1"
   },
   "files": [
     "index.js",
@@ -22,10 +31,6 @@
     "front-end",
     "cli"
   ],
-  "author": "keyfunc",
-  "license": "ISC",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  }
+  "author": "keyfun",
+  "license": "ISC"
 }

@@ -61,7 +61,27 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1(typescript@6.0.3)
 
-  packages/uno: {}
+  packages/uno:
+    dependencies:
+      commander:
+        specifier: ^13.0.0
+        version: 13.1.0
+      fs-extra:
+        specifier: ^11.2.0
+        version: 11.3.5
+      handlebars:
+        specifier: ^4.7.8
+        version: 4.7.9
+    devDependencies:
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.19.19
+      unbuild:
+        specifier: ^3.6.1
+        version: 3.6.1(typescript@6.0.3)
 
 packages:
 

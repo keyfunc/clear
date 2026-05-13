@@ -1,21 +1,43 @@
 name: uno publish
 
+# 工作流: 先 npm install => npm build => npm pack dry-run => npm publish
+# 发布方式: npm Trusted Publishing / OIDC，无需配置 npm token
+# 触发方式: 在 GitHub Actions 页面手动触发
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: uno-npm-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   publish-npm:
+    name: Verify and publish
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: ./packages/uno
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: npm install
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Check
+        run: npm pack --dry-run
+
+      - name: Publish
+        run: npm publish --access public --provenance
