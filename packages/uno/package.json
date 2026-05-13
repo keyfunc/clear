@@ -1,6 +1,6 @@
 {
   "name": "@keyfun/uno",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An uno front-end cli.",
   "type": "module",
   "main": "index.js",
@@ -32,5 +32,14 @@
     "cli"
   ],
   "author": "keyfun",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyfunc/uno.git",
+    "directory": "packages/uno"
+  },
+  "bugs": {
+    "url": "https://github.com/keyfunc/uno/issues"
+  },
+  "homepage": "https://github.com/keyfunc/uno/tree/master/packages/uno#readme"
 }
