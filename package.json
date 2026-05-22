@@ -56,5 +56,12 @@
 		"commitizen": {
 			"path": "cz-conventional-changelog"
 		}
+	},
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "11.2.2",
+			"onFail": "download"
+		}
 	}
 }
