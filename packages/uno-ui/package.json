@@ -1,0 +1,8 @@
+{
+	"name": "uno-ui",
+	"version": "1.0.0",
+	"description": "Simple React components built with Tailwind CSS. Copy, customize, and fully own your UI.",
+	"license": "MIT",
+	"author": "keyfunc",
+	"type": "module"
+}

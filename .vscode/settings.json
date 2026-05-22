@@ -1,0 +1,7 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  }
+}

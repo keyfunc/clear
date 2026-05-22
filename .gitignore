@@ -2,9 +2,8 @@ node_modules
 
 # Build output
 dist/
+build
 
 # Editor directories and files
-!.vscode/extensions.json
 .idea
 .DS_Store
-.vscode

@@ -1,25 +1,60 @@
 {
-  "name": "uno",
-  "version": "1.0.0",
-  "description": "A cli for generating frontend tools",
-  "type": "module",
-  "keywords": [
-    "cli",
-    "front-end"
-  ],
-  "author": "keyfunc",
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@types/figlet": "^1.7.0",
-    "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.10.5",
-    "@types/prompts": "^2.4.9",
-    "chalk": "^5.4.1",
-    "commander": "^13.0.0",
-    "figlet": "^1.8.0",
-    "fs-extra": "^11.2.0",
-    "handlebars": "^4.7.8",
-    "prompts": "^2.4.2",
-    "unbuild": "^3.2.0"
-  }
+	"name": "uno",
+	"type": "module",
+	"author": "keyfunc",
+	"scripts": {
+		"dev:ui": "pnpm --filter docs dev",
+		"build:ui": "pnpm --filter docs build",
+		"prepare": "husky",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier . --write",
+		"format:check": "prettier . --check",
+		"commit": "git add . && cz"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.15",
+		"@commitlint/cli": "^21.0.1",
+		"@commitlint/config-conventional": "^21.0.1",
+		"@react-router/dev": "^7.15.1",
+		"@tailwindcss/vite": "^4.3.0",
+		"@types/figlet": "^1.7.0",
+		"@types/fs-extra": "^11.0.4",
+		"@types/mdx": "^2.0.13",
+		"@types/node": "^25.8.0",
+		"@types/prompts": "^2.4.9",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"chalk": "^5.4.1",
+		"commander": "^13.0.0",
+		"figlet": "^1.8.0",
+		"fs-extra": "^11.2.0",
+		"handlebars": "^4.7.8",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.0.5",
+		"prompts": "^2.4.2",
+		"react-router-devtools": "^6.2.0",
+		"serve": "^14.2.6",
+		"tailwindcss": "^4.3.0",
+		"typescript": "^6.0.3",
+		"unbuild": "^3.2.0",
+		"vite": "^8.0.13",
+		"commitizen": "^4.3.1",
+		"cz-conventional-changelog": "^3.3.0"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,json,jsonc,css,md,mdx}": [
+			"biome check --write --no-errors-on-unmatched"
+		]
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	}
 }

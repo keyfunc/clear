@@ -1,45 +1,40 @@
 {
-  "name": "@keyfun/uno",
-  "version": "1.0.1",
-  "description": "An uno front-end cli.",
-  "type": "module",
-  "main": "index.js",
-  "bin": {
-    "uno": "index.js"
-  },
-  "scripts": {
-    "build": "unbuild",
-    "test": "node index.js"
-  },
-  "dependencies": {
-    "commander": "^13.0.0",
-    "fs-extra": "^11.2.0",
-    "handlebars": "^4.7.8"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.10.5",
-    "unbuild": "^3.6.1"
-  },
-  "files": [
-    "index.js",
-    "src",
-    "dist"
-  ],
-  "keywords": [
-    "uno",
-    "front-end",
-    "cli"
-  ],
-  "author": "keyfun",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/keyfunc/uno.git",
-    "directory": "packages/uno"
-  },
-  "bugs": {
-    "url": "https://github.com/keyfunc/uno/issues"
-  },
-  "homepage": "https://github.com/keyfunc/uno/tree/master/packages/uno#readme"
+	"name": "@keyfun/uno",
+	"version": "1.0.1",
+	"description": "An uno front-end cli.",
+	"type": "module",
+	"main": "index.js",
+	"bin": {
+		"uno": "index.js"
+	},
+	"scripts": {
+		"build": "unbuild",
+		"test": "node index.js"
+	},
+	"dependencies": {
+		"commander": "^13.0.0",
+		"fs-extra": "^11.2.0",
+		"handlebars": "^4.7.8"
+	},
+	"files": [
+		"index.js",
+		"src",
+		"dist"
+	],
+	"keywords": [
+		"uno",
+		"front-end",
+		"cli"
+	],
+	"author": "keyfun",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/keyfunc/uno.git",
+		"directory": "packages/uno"
+	},
+	"bugs": {
+		"url": "https://github.com/keyfunc/uno/issues"
+	},
+	"homepage": "https://github.com/keyfunc/uno/tree/master/packages/uno#readme"
 }

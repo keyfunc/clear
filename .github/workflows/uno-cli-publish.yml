@@ -1,4 +1,4 @@
-name: uno publish
+name: uno cli publish
 
 # 工作流: 先 npm install => npm build => npm pack dry-run => npm publish
 # 发布方式: npm Trusted Publishing / OIDC，无需配置 npm token
