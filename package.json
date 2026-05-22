@@ -3,8 +3,8 @@
 	"type": "module",
 	"author": "keyfunc",
 	"scripts": {
-		"dev:ui": "pnpm --filter docs dev",
-		"build:ui": "pnpm --filter docs build",
+		"dev:docs": "pnpm --filter docs dev",
+		"build:docs": "pnpm --filter docs build",
 		"prepare": "husky",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
