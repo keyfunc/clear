@@ -339,6 +339,9 @@ importers:
       tailwind-merge:
         specifier: ^3.6.0
         version: 3.6.0
+      uno-ui:
+        specifier: workspace:*
+        version: link:../uno-ui
 
   packages/uno:
     dependencies:

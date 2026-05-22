@@ -11,7 +11,7 @@
 		"attributePosition": "auto",
 		"indentStyle": "tab",
 		"indentWidth": 2,
-		"lineEnding": "crlf",
+		"lineEnding": "lf",
 		"lineWidth": 80
 	},
 	"javascript": {

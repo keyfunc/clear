@@ -1,0 +1,11 @@
+{
+	"name": "uno-ui",
+	"homepage": "https://docs.keyfu.cc",
+	"components": [
+		{
+			"name": "Button",
+			"title": "button",
+			"path": "src/components/Button"
+		}
+	]
+}

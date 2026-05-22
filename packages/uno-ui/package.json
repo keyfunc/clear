@@ -4,5 +4,8 @@
 	"description": "Simple React components built with Tailwind CSS. Copy, customize, and fully own your UI.",
 	"license": "MIT",
 	"author": "keyfunc",
-	"type": "module"
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	}
 }
