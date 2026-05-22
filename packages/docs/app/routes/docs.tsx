@@ -9,6 +9,7 @@ import {
 	MarkdownCopyButton,
 	ViewOptionsPopover,
 } from "fumadocs-ui/layouts/docs/page";
+import { getMDXComponents } from "@/components/mdx";
 import { baseOptions } from "@/lib/layout.shared";
 import { gitConfig } from "@/lib/shared";
 import { getPageMarkdownUrl, source } from "@/lib/source";
@@ -52,7 +53,7 @@ const clientLoader = browserCollections.docs.createClientLoader({
 					/>
 				</div>
 				<DocsBody>
-					<Mdx />
+					<Mdx components={getMDXComponents()} />
 				</DocsBody>
 			</DocsPage>
 		);
