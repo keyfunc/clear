@@ -1,5 +1,10 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"files": {
 		"includes": ["**", "!**/node_modules", "!**/.*", "!**/*.d.ts"]
